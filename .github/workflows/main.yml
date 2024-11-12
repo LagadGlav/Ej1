@@ -15,10 +15,9 @@ jobs:
         with:
           python-version: '3.x' 
 
-      - name: Instalar pytest
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-
-      - name: Ejecutar Tests con pytest
-        run: pytest test.py
+      - name: Probar codigo
+        run: python3 main.py
+      - name: Crear imagen Docker
+        run: docker build -t LagadGlav/Ej1
+      - name: Probar contenedor
+        run: docker run LagadGlav/Ej1
