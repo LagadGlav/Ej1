@@ -1,5 +1,6 @@
 FROM python:3.9-slim
 
-COPY main.py
+WORKDIR /app/
+COPY main.py /app/
 
 CMD ["python3", "main.py"]
