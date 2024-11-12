@@ -1,0 +1,24 @@
+name: Ejecutar Tests
+
+on: push
+
+jobs:
+  ejecutar_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' 
+
+      - name: Instalar pytest
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Ejecutar Tests con pytest
+        run: pytest test.py
